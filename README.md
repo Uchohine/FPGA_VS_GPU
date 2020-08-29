@@ -37,6 +37,8 @@
   - Much faster then GPU (4x plus vs GPU when loaded with GoogLeNet), save space (since there's only one unit running), lower power consumption / image processed.
   - Super hard if you holds a device was not originally designed for machine learning.
   
+![](readme/performance.png)
+
 ## Why the performance gain/trade off
 
 ### INT8 vs float 32:
