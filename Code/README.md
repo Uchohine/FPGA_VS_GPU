@@ -27,7 +27,8 @@
   ```
   depends on your python version
   
-## On Aliyun:
+## On Aliyun ecs.gn6v-c8g1.2xlarge ECS, 8 vCPU + 1 * Nvidia Tesla V100 + 32GiB RAM, with Ubuntu 20.04, CUDA==11.0, cuDNN==7.6.5 + 8.0.1 rc2:
+### GPU usage on run:
 ```
 Sun Aug 30 20:48:42 2020       
 +-----------------------------------------------------------------------------+
@@ -50,7 +51,7 @@ Sun Aug 30 20:48:42 2020
 |    0   N/A  N/A     25226      C   python3                         15651MiB |
 +-----------------------------------------------------------------------------+
 ```
-## run log:
+### run log:
 ```
 2020-08-30 20:47:53.211532: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
 2020-08-30 20:47:54.701173: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
@@ -106,8 +107,12 @@ This property should not be used in TensorFlow 2.0, as updates are applied autom
 2020-08-30 20:48:01.657705: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.7
 Predicted Class:  282 , Class Name:  n02123159 tiger cat
 /home/mingwen/Documents/GoogLeNet/images
+```
+### result:
+```
 Total image read:  5000 Average Process Time:  0.0063156261444091795 s/image, Average image/s:  158.3374280134102
 ```
+
   
 ## To run benchmark on FPGA, do the following:
 
