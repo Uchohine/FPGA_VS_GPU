@@ -51,9 +51,19 @@
   Due to lack of support for some of the custom design layers, FPGA has to let the cpu to do this part of jobs, which probably would hurt the performance if a weak cpu is installed or latency caused by communication between FPGA memory and CPU memory. However, GPU does not seem to have this kind of issues, the whole model would be loaded on the GPU as long as the session remained open, even when no input tensor is given (no calculation required).
 
 ### System version requirement:
-  As powerful as FPGA, it still needs 3rd party package in order to run. Viti-ai and xDNN have highly specific kernel verision, system version, tensorflow version even opencv version requirement. As for intel, customers would have to phsyically modify their own cards for these kind of tasks. There are no easy way to compile xDNN or XRT, even with system deployed as the documentation required, customers still have to build from source to ensure successful installation.cuDNN and CUDA on the other hand, have always kept up with the newest version linux, all version of CUDA and cuDNN could be installed via simple .deb package on multiple version of multiple linux distros and have almost no kernel version requirement. 
+  As powerful as FPGA, it still needs 3rd party package in order to run. Viti-ai and xDNN have highly specific kernel verision, system version, tensorflow version even opencv version requirement. As for intel, customers would have to phsyically modify their own cards for these kind of tasks. There are no easy way to compile xDNN or XRT, even with system deployed as the documentation required, customers still have to build from source to ensure successful installation. Things gets worse if you are holding a FPGA device which is not originally designed for machine learning. ECS.F3.2xlarge on Aliyun and ECS.f1.2xlarge on huaweiCloud has the exact same spec as AWS EC2.f1.x2large but Ml-Suite only runs on AWS's EC2 server. Vitis-ai does not support VU9P MPSoC for now. cuDNN and CUDA on the other hand, have always kept up with the newest version linux, all version of CUDA and cuDNN could be installed via simple .deb package on multiple version of multiple linux distros and have almost no kernel version requirement. 
   
 ## Further work could do:
   - Instead of using existing vitis AI and xDNN, for specific model we can actually design our own HW acceleration module for DPU, that's what GPU could never achieve in customers' hands.
   - Most of the benchmark done by xilinx or Nvidia comes from system built with one GPU or FPGA inserted. Keep in mind there're many monster server machines out there with 8 Nvidia Tesla V100 card on the same motherboard. Would more GPU working together out rank FPGA? Since FPGA card now has no SLI features.
   - FPGA for ML are more focus on CNN side, which is image processing, will it beats GPU on NLP or other machine learning topics if proper features are implemented? Would customers choose FPGA over GPU just because advantage in computer vision?
+  
+## Reference:
+
+Accelerating DNNs with Xilinx Alveo Accelerator Cards (WP504, v1.0.1) October 14, 2018
+cuDNN-Developer-Guide DU-06702-001_v8.0.2
+https://gist.github.com/joelouismarino/a2ede9ab3928f999575423b9887abd14 GoogLeNet (a.k.a Inception V1) tensorflow-keras-gpu
+https://github.com/Xilinx/ml-suite Xilinx Ml-Suite
+https://github.com/Xilinx/vitis-ai Xilinx Vitis-AI
+
+
