@@ -14,6 +14,15 @@
   ```
   {"epsilon": 1e-07, "floatx": "float32", "backend": "tensorflow", "image_data_format": "channels_first"}
   ```
+  * Then in 'FPGA_VS_GPU/Code' run:
+  ```
+  python main.py
+  ```
+  or
+  ```
+  python3 main.py
+  ```
+  depends on your python version
   
 ## To run benchmark on FPGA, do the following:
 
