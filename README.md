@@ -43,9 +43,11 @@
 
 ### INT8 vs float 32:
   INT8 would brings much lower latency and higher throughput compared with float 32 format, but at the same time this format would cost accuracy and precision. By quantization technology, xilinx would overcome these drawbacks on some of the model (ex. ResNet), which partially explain why FPGA supports limit amount of models.
+![](readme/FPGA_arch.png)
   
 ### GPU vs Programmable logical unit:
   While cuDNN do have algorithm for convolution and back prop, Alveo on the other hand, fuse the Conv, relu and bias layer in one "layer", also parallel conv and max pooling(downsampling) at the same time, which are huge performance boost for calculation. While GPU uses 'brute force' , adding more GPU cores, to accelerate tasks, with hardware acceleration FPGA could easily achieve the same performance with lesser cores running.
+![](readme/layer.png)
   
 ### FPGA is not a end-to-end model taker:
   Due to lack of support for some of the custom design layers, FPGA has to let the cpu to do this part of jobs, which probably would hurt the performance if a weak cpu is installed or latency caused by communication between FPGA memory and CPU memory. However, GPU does not seem to have this kind of issues, the whole model would be loaded on the GPU as long as the session remained open, even when no input tensor is given (no calculation required).
