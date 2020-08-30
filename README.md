@@ -60,11 +60,11 @@
   
 ## Reference:
 
-Accelerating DNNs with Xilinx Alveo Accelerator Cards (WP504, v1.0.1) October 14, 2018
-cuDNN-Developer-Guide DU-06702-001_v8.0.2
-https://gist.github.com/joelouismarino/a2ede9ab3928f999575423b9887abd14 GoogLeNet (a.k.a Inception V1) tensorflow-keras-gpu
-https://github.com/Xilinx/ml-suite Xilinx Ml-Suite
-https://github.com/Xilinx/vitis-ai Xilinx Vitis-AI
+  - Accelerating DNNs with Xilinx Alveo Accelerator Cards (WP504, v1.0.1) October 14, 2018
+  - cuDNN-Developer-Guide DU-06702-001_v8.0.2
+  - https://gist.github.com/joelouismarino/a2ede9ab3928f999575423b9887abd14 GoogLeNet (a.k.a Inception V1) tensorflow-keras-gpu
+  - https://github.com/Xilinx/ml-suite Xilinx Ml-Suite
+  - https://github.com/Xilinx/vitis-ai Xilinx Vitis-AI
 
 
 
