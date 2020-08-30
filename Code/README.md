@@ -27,7 +27,7 @@
   ```
   depends on your python version
   
-## On Aliyun ecs.gn6v-c8g1.2xlarge ECS, 8 vCPU + 1 * Nvidia Tesla V100 + 32GiB RAM, with Ubuntu 20.04, CUDA==11.0, cuDNN==7.6.5 + 8.0.1 rc2:
+## On Aliyun ecs.gn6v-c8g1.2xlarge ECS, 8 vCPU(Intel Xeon(Skylake) Platinum 8163) + 1 * Nvidia Tesla V100 + 32GiB RAM, with Ubuntu 20.04, CUDA==11.0, cuDNN==7.6.5 + 8.0.1 rc2:
 ### GPU usage on run:
 ```
 Sun Aug 30 20:48:42 2020       
