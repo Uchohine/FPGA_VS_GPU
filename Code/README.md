@@ -15,7 +15,7 @@
   {"epsilon": 1e-07, "floatx": "float32", "backend": "tensorflow", "image_data_format": "channels_first"}
   ```
   
-  * Get ImageNet 2012 and put them in '/images'. 
+  * Get ImageNet 2012 and put them in `/images`. 
   
   * Then in 'FPGA_VS_GPU/Code' run:
   ```
