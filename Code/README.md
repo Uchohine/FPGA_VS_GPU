@@ -108,9 +108,9 @@ This property should not be used in TensorFlow 2.0, as updates are applied autom
 Predicted Class:  282 , Class Name:  n02123159 tiger cat
 /home/mingwen/Documents/GoogLeNet/images
 ```
-### result:
+### Result(Only prediction time is calculated, preprocess time is not included):
 ```
-Total image read:  5000 Average Process Time:  0.0063156261444091795 s/image, Average image/s:  158.3374280134102
+Total image read:  5000 Average Process Time:  6.3156261444091795 ms/image, Average image/s:  158.4
 ```
 
   
