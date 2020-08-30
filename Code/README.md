@@ -28,6 +28,7 @@
   depends on your python version
   
 ## On Aliyun:
+```
 Sun Aug 30 20:48:42 2020       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 450.51.06    Driver Version: 450.51.06    CUDA Version: 11.0     |
@@ -48,6 +49,7 @@ Sun Aug 30 20:48:42 2020
 |=============================================================================|
 |    0   N/A  N/A     25226      C   python3                         15651MiB |
 +-----------------------------------------------------------------------------+
+```
 ## run log:
 ```
 2020-08-30 20:47:53.211532: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
