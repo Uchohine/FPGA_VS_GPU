@@ -42,13 +42,16 @@
 ## Why the performance gain/trade off
 
 ### INT8 vs float 32:
-  INT8 would brings much lower latency and higher throughput compared with float 32 format, but at the same time this format would cost accuracy and precision. By quantization technology, xilinx would overcome this drawbacks on some of the model (ex. ResNet), which partially explain why FPGA supports limit amount of models.
+  INT8 would brings much lower latency and higher throughput compared with float 32 format, but at the same time this format would cost accuracy and precision. By quantization technology, xilinx would overcome these drawbacks on some of the model (ex. ResNet), which partially explain why FPGA supports limit amount of models.
   
 ### GPU vs Programmable logical unit:
   While cuDNN do have algorithm for convolution and back prop, Alveo on the other hand, fuse the Conv, relu and bias layer in one "layer", also parallel conv and max pooling(downsampling) at the same time, which are huge performance boost for calculation.
   
 ### FPGA is not a end-to-end model taker:
   Due to lack of support for some of the custom design layers, FPGA has to let the cpu to do this part of jobs, which probably would hurt the performance if a weak cpu is installed or latency caused by communication between FPGA memory and CPU memory. However, GPU does not seem to have this kind of issues, the whole model would be loaded on the GPU as long as the session remained open, even when no input tensor is given (no calculation required).
+
+### System version requirement:
+  As powerful as FPGA, it still needs 3rd party package in order to run. Viti-ai and xDNN have highly specific kernel verision, system version, tensorflow version even opencv version requirement. As for intel, customers would have to phsyically modify their own cards for these kind of tasks. There are no easy way to compile xDNN or XRT, even with system deployed as the documentation required, customers still have to build from source to ensure successful installation.cuDNN and CUDA on the other hand, have always keep up with the newest version linux, all version of CUDA and cuDNN could be installed via simple .deb package on multiple version of multiple linux distros and have almost no kernel version requirement. 
   
 ## Further work could do:
   - Instead of using existing vitis AI and xDNN, for specific model we can actually design our own HW acceleration module for DPU, that's what GPU could never achieve in customers' hands.
