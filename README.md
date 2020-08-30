@@ -3,6 +3,7 @@
 ## What is Machine learning in simple explaination
 
 ![](readme/machinelearning.png)
+Figure 1
 
 ## Computational Power
 
@@ -12,11 +13,13 @@
 | Throughput| too low |  high   |   high    |
 | Power     | medium  |  high   |   low     |
 | Access    | easy    |  medium |   hard    |
+Table 1
 
 
 ## How machine learning framwork interact with hardware?
 
 ![](readme/framework.png)
+Figure 2
 
 ## GPU vs FPGA(DPU as interpreted by xilinx)
 
@@ -38,20 +41,24 @@
   - Super hard if you holds a device was not originally designed for machine learning.
   
 ![](readme/performance.png)
+Figure 3
 
 ## Why the performance gain/trade off
 
 ### INT8 vs float 32:
   INT8 would brings much lower latency and higher throughput compared with float 32 format, but at the same time this format would cost accuracy and precision. By quantization technology, xilinx would overcome these drawbacks on some of the model (ex. ResNet), which partially explain why FPGA supports limit amount of models.
 ![](readme/FPGA_arch.png)
+Figure 4
   
 ### GPU vs Programmable logical unit:
   While cuDNN do have algorithm for convolution and back prop, Alveo on the other hand, fuse the Conv, relu and bias layer in one "layer", also parallel conv and max pooling(downsampling) at the same time, which are huge performance boost for calculation. While GPU uses 'brute force' , adding more GPU cores, to accelerate tasks, with hardware acceleration FPGA could easily achieve the same performance with lesser cores running.
 ![](readme/layer.png)
+Figure 5
   
 ### FPGA is not a end-to-end model taker:
   Due to lack of support for some of the custom design layers, FPGA has to let the cpu to do this part of jobs, which probably would hurt the performance if a weak cpu is installed or latency caused by communication between FPGA memory and CPU memory. However, GPU does not seem to have this kind of issues, the whole model would be loaded on the GPU as long as the session remained open, even when no input tensor is given (no calculation required).
 ![](readme/FPGA_CPU.png)
+Figure 6
 
 ### System version requirement:
   As powerful as FPGA, it still needs 3rd party package in order to run. Viti-ai and xDNN have highly specific kernel verision, system version, tensorflow version even opencv version requirement. There are no easy way to compile xDNN or XRT, even with system deployed as the documentation required, customers still have to build from source to ensure successful installation. Things get worse if you are holding a FPGA device which is not originally designed for machine learning. ECS.F3.2xlarge on Aliyun and ECS.f1.2xlarge on huaweiCloud has the exact same spec as AWS EC2.f1.x2large but Ml-Suite only runs on AWS's EC2 server. Vitis-ai does not support VU9P MPSoC for now.  As for intel, customers would have to phsyically modify their own cards for these kind of tasks.cuDNN and CUDA on the other hand, have always kept up with the newest version linux, all version of CUDA and cuDNN could be installed via simple .deb package on multiple version of multiple linux distros and have almost no kernel version requirement. 
