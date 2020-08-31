@@ -3,7 +3,10 @@
 ## What is Machine learning in simple explaination
 
 ![](readme/machinelearning.png)
+```
 Figure 1
+```
+Machine learning is to tell the machine to think and solve problems as human. Here is a simple example explaining difference between classic programming and machine learning. Classic programming would require human to define the parameter used, and the program would return Y as result, which is a constant. However, in machine learning case, we would design a training process for machine to learn the parameters themselves, and this process would return a model, which is this whole equation in this case, with parameters calculated by the machine.  Then later on, we will input x to the model for prediction, Y.  The input and the parameters here are matrices with hundreds maybe thousands of dimensions, so extreme parallel computational power is required, and that’s why GPU and FPGA are winners of this game.
 
 ## Computational Power
 
@@ -13,13 +16,21 @@ Figure 1
 | Throughput| too low |  high   |   high    |
 | Power     | medium  |  high   |   low     |
 | Access    | easy    |  medium |   hard    |
+```
 Table 1
+```
+When talking about computational power, there are actually three platforms to choose. The reason why CPU is not on today’s topic is that, CPU cores are too powerful for this type of calculations, but at the same time CPU has too less cores for high throughput requirement. GPU and FPGA on the other hand, have thousands of cores, which are highly suitable for matrices calculations. 
 
+Now, CPU is not totally out of this game, Since CPU is so easy to access, if you have a computer, you would definitely have a CPU. GPU comes at 2nd place, if you are a gamer, or a computer vision researcher, you are highly possibly holding at least one GPU suitable for machine learning, and most of the majority won’t have FPGA for machine learning as their first choice.
 
 ## How machine learning framwork interact with hardware?
 
 ![](readme/framework.png)
 Figure 2
+
+So, how does the hardware interact with the software? In normal situation, we will implement the model in programming languages, like python, c, C++. Those programming languages will invoke machine learning API like tensorflow, pytorch.  Those APIs have functions implemented to communicates with the hardware through like say CUDA if you are using Nvidia GPU, OpenCL if you have AMD GPU, at least some of them would work, Vitis AI if you have Xilinx Alveo data accelerate cards or say DPU and compiler if you are only using CPU. 
+
+The matrices will be translated into tensors, which are n dimensional arrays with specific shape and data type. For GPU the data type would be float 16/32, and INT8 if FPGA is used. FPGA uses different architecture for mapping model, it will fuse layers together and quantized the model, which is to change the data type from float 32 to INT 8, while GPU simply transfer the model into its memory.
 
 ## GPU vs FPGA(DPU as interpreted by xilinx)
 
