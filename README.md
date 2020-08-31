@@ -21,7 +21,7 @@ Table 1
 ```
 When talking about computational power, there are actually three platforms to choose. The reason why CPU is not on today’s topic is that, CPU cores are too powerful for this type of calculations, but at the same time CPU has too less cores for high throughput requirement. GPU and FPGA on the other hand, have thousands of cores, which are highly suitable for matrices calculations. 
 
-Now, CPU is not totally out of this game, Since CPU is so easy to access, if you have a computer, you would definitely have a CPU. GPU comes at 2nd place, if you are a gamer, or a computer vision researcher, you are highly possibly holding at least one GPU suitable for machine learning, and most of the majority won’t have FPGA for machine learning as their first choice.
+CPU is not totally out of this game, Since CPU is so easy to access, if you have a computer, you would definitely have a CPU. GPU comes at 2nd place, if you are a gamer, or a computer vision researcher, you are highly possibly holding at least one GPU suitable for machine learning, and most of the majority won’t have FPGA for machine learning as their first choice.
 
 ## How machine learning framwork interact with hardware?
 
